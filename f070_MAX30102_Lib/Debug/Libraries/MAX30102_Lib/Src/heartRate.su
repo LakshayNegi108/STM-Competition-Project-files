@@ -1,0 +1,4 @@
+../Libraries/MAX30102_Lib/Src/heartRate.c:30:6:checkForBeat	24	static
+../Libraries/MAX30102_Lib/Src/heartRate.c:87:9:averageDCEstimator	16	static
+../Libraries/MAX30102_Lib/Src/heartRate.c:94:9:lowPassFIRFilter	32	static
+../Libraries/MAX30102_Lib/Src/heartRate.c:112:9:mul16	16	static

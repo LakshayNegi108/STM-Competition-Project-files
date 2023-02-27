@@ -1,0 +1,6 @@
+../Libraries/tft_lib/Src/graphics.c:11:6:LCD_DrawButton1	40	static
+../Libraries/tft_lib/Src/graphics.c:27:6:LCD_DrawHBorder	32	static
+../Libraries/tft_lib/Src/graphics.c:36:6:LCD_DrawVBorder	32	static
+../Libraries/tft_lib/Src/graphics.c:45:6:LCD_DrawButton2	40	static
+../Libraries/tft_lib/Src/graphics.c:76:6:Display_Picture2	40	static
+../Libraries/tft_lib/Src/graphics.c:90:6:LCD_DataDisplayBox	40	static
