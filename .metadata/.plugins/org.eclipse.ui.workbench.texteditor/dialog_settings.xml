@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="max30102_mode_t"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="max30102_mode_t"/>
+			<item value="MAX30100_MODE_SHDN"/>
+			<item value="MAX30100_MODE_CONF"/>
+			<item value="draw_pixels_buff_cb"/>
+			<item value="sercer"/>
+			<item value="esp1_sendCommand"/>
+			<item value="Delay"/>
+			<item value="Delay(x)"/>
+			<item value="USART6"/>
+			<item value="mlx90614_wrokingFlag"/>
+			<item value="MAX30100_I2C"/>
+			<item value="max30100_write_register"/>
+			<item value="8bit"/>
+			<item value="8_bit"/>
+			<item value="BML_ERROR"/>
+		</list>
+		<list key="replacehistory">
+			<item value="esp_sendCommand"/>
+			<item value="ESP_DELAY"/>
+			<item value="ESP_USART"/>
+			<item value="mlx90614_workingFlag"/>
+			<item value="this-&gt;_ui2c"/>
+			<item value="HAL_ERROR"/>
+			<item value="HAL_OK"/>
+			<item value="HAL_StatusTypeDef"/>
+			<item value=""/>
+			<item value="aMap"/>
+			<item value="mapa"/>
+			<item value="SR"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="856"/>
+		<item key="DIALOG_Y_ORIGIN" value="181"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="397"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

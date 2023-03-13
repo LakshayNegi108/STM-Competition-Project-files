@@ -1,0 +1,44 @@
+22:19:47 **** Incremental Build of configuration Debug for project MAX30102 Reading ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/MAX30102 Reading/Libraries/MAX30102_Lib/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102 Reading/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102 Reading/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:37: warning: "DEBUG" redefined
+   37 | #define DEBUG 0
+      | 
+<command-line>: note: this is the location of the previous definition
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:139:7: warning: implicit declaration of function 'checkForBeat' [-Wimplicit-function-declaration]
+  139 |   if (checkForBeat(ir) == true
+      |       ^~~~~~~~~~~~
+../Core/Src/main.c:121:7: warning: variable 'maxReady' set but not used [-Wunused-but-set-variable]
+  121 |  bool maxReady = true;
+      |       ^~~~~~~~
+../Core/Src/main.c:119:19: warning: unused variable 'red' [-Wunused-variable]
+  119 |  uint32_t ir = 0, red = 0;
+      |                   ^~~
+../Core/Src/main.c: In function 'max30102_startSeq':
+../Core/Src/main.c:361:46: warning: pointer targets in passing argument 2 of 'max30102_read_temp' differ in signedness [-Wpointer-sign]
+  361 |  max30102Ret = max30102_read_temp(&max30102, &tempInt, &tempFrac);
+      |                                              ^~~~~~~~
+      |                                              |
+      |                                              uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/MAX30102 Reading/Libraries/MAX30102_Lib/Inc/MAX30102.h:158:50: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  158 | bool max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac);
+      |                                          ~~~~~~~~^~~~~~~~
+../Core/Src/main.c:324:10: warning: variable 'max30102Ret' set but not used [-Wunused-but-set-variable]
+  324 |  uint8_t max30102Ret = true;
+      |          ^~~~~~~~~~~
+arm-none-eabi-gcc -o "MAX30102 Reading.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\MAX30102 Reading\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAX30102 Reading.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MAX30102 Reading.elf
+ 
+arm-none-eabi-size   MAX30102\ Reading.elf 
+arm-none-eabi-objdump -h -S  MAX30102\ Reading.elf  > "MAX30102 Reading.list"
+   text	   data	    bss	    dec	    hex	filename
+  33628	    552	   4432	  38612	   96d4	MAX30102 Reading.elf
+Finished building: default.size.stdout
+ 
+Finished building: MAX30102 Reading.list
+ 
+
+22:19:49 Build Finished. 0 errors, 6 warnings. (took 1s.357ms)
+

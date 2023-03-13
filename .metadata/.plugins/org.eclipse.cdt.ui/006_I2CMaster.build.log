@@ -1,0 +1,37 @@
+20:05:32 **** Incremental Build of configuration Debug for project 006_I2CMaster ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/006_I2CMaster/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:17:2: warning: implicit declaration of function 'uart_print_config' [-Wimplicit-function-declaration]
+   17 |  uart_print_config(9600);
+      |  ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:18:2: warning: implicit declaration of function 'print'; did you mean 'printf'? [-Wimplicit-function-declaration]
+   18 |  print("Working\n");
+      |  ^~~~~
+      |  printf
+../Core/Src/main.c:43:35: warning: pointer targets in passing argument 3 of 'I2C1_byteRead' differ in signedness [-Wpointer-sign]
+   43 |   I2C1_byteRead(SLAVE_ADDR, 0x07, &data);
+      |                                   ^~~~~
+      |                                   |
+      |                                   uint8_t * {aka unsigned char *}
+../Core/Src/main.c:9:49: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+    9 | int I2C1_byteRead(char saddr, char maddr, char *data);
+      |                                           ~~~~~~^~~~
+../Core/Src/main.c: In function 'I2C1_byteRead':
+../Core/Src/main.c:55:15: warning: variable 'tmp' set but not used [-Wunused-but-set-variable]
+   55 |  volatile int tmp;
+      |               ^~~
+arm-none-eabi-gcc -o "006_I2CMaster.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\006_I2CMaster\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006_I2CMaster.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 006_I2CMaster.elf
+ 
+arm-none-eabi-size   006_I2CMaster.elf 
+arm-none-eabi-objdump -h -S  006_I2CMaster.elf  > "006_I2CMaster.list"
+   text	   data	    bss	    dec	    hex	filename
+  22152	    548	   1844	  24544	   5fe0	006_I2CMaster.elf
+Finished building: default.size.stdout
+ 
+Finished building: 006_I2CMaster.list
+ 
+
+20:05:35 Build Finished. 0 errors, 4 warnings. (took 3s.37ms)
+

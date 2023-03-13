@@ -1,0 +1,53 @@
+00:31:33 **** Incremental Build of configuration Debug for project f070_MAX30102_Lib ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F070xB -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/f070_MAX30102_Lib/Libraries/MAX30102_Lib/Inc" -I"E:/STM codes/STM32F401 SPACE/f070_MAX30102_Lib/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:71:7: warning: implicit declaration of function 'checkForBeat' [-Wimplicit-function-declaration]
+   71 |   if (checkForBeat(ir) == true && (ir > 10000)) {
+      |       ^~~~~~~~~~~~
+../Core/Src/main.c:46:11: warning: unused variable 'red' [-Wunused-variable]
+   46 |  uint16_t red = 0;
+      |           ^~~
+In file included from ../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h:145,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h:30,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_rcc.h:29,
+                 from ../Core/Inc/stm32f0xx_hal_conf.h:193,
+                 from ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:1:
+../Core/Src/main.c: In function 'max30102_startSeq':
+../Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f070xb.h:556:29: warning: passing argument 2 of 'max30102_init' from incompatible pointer type [-Wincompatible-pointer-types]
+  556 | #define I2C1                ((I2C_TypeDef *) I2C1_BASE)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             |
+      |                             I2C_TypeDef *
+../Core/Src/main.c:118:31: note: in expansion of macro 'I2C1'
+  118 |  if (max30102_init(&max30102, I2C1)) {
+      |                               ^~~~
+In file included from ../Core/Src/main.c:8:
+E:/STM codes/STM32F401 SPACE/f070_MAX30102_Lib/Libraries/MAX30102_Lib/Inc/Max30102.h:125:56: note: expected 'I2C_HandleTypeDef *' {aka 'struct __I2C_HandleTypeDef *'} but argument is of type 'I2C_TypeDef *'
+  125 | bool max30102_init(max30102_t *obj, I2C_HandleTypeDef *hi2c);
+      |                                     ~~~~~~~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:128:32: warning: pointer targets in passing argument 2 of 'max30102_read_temp' differ in signedness [-Wpointer-sign]
+  128 |  max30102_read_temp(&max30102, &tempInt, &tempFrac);
+      |                                ^~~~~~~~
+      |                                |
+      |                                uint8_t * {aka unsigned char *}
+In file included from ../Core/Src/main.c:8:
+E:/STM codes/STM32F401 SPACE/f070_MAX30102_Lib/Libraries/MAX30102_Lib/Inc/Max30102.h:157:50: note: expected 'int8_t *' {aka 'signed char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  157 | bool max30102_read_temp(max30102_t *obj, int8_t *temp_int, uint8_t *temp_frac);
+      |                                          ~~~~~~~~^~~~~~~~
+arm-none-eabi-gcc -o "f070_MAX30102_Lib.elf" @"objects.list"   -mcpu=cortex-m0 -T"E:\STM codes\STM32F401 SPACE\f070_MAX30102_Lib\STM32F070RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f070_MAX30102_Lib.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: f070_MAX30102_Lib.elf
+ 
+arm-none-eabi-size   f070_MAX30102_Lib.elf 
+arm-none-eabi-objdump -h -S  f070_MAX30102_Lib.elf  > "f070_MAX30102_Lib.list"
+   text	   data	    bss	    dec	    hex	filename
+  34572	    552	   2488	  37612	   92ec	f070_MAX30102_Lib.elf
+Finished building: default.size.stdout
+ 
+Finished building: f070_MAX30102_Lib.list
+ 
+
+00:31:37 Build Finished. 0 errors, 4 warnings. (took 4s.427ms)
+

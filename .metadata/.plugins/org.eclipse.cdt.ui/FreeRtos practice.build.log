@@ -1,0 +1,35 @@
+20:56:12 **** Incremental Build of configuration Debug for project FreeRtos practice ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/FreeRtos practice/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/FreeRtos practice/Libraries/MAX30100_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/FreeRtos practice/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/FreeRtos practice/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:113:22: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  113 |  USART_WRITE(USART6, "WORKING USART 6\r\n", 18, 100);
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/FreeRtos practice/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c: In function 'StartTask02':
+../Core/Src/main.c:414:11: warning: unused variable 'PreviousWakeTime' [-Wunused-variable]
+  414 |  uint32_t PreviousWakeTime = osKernelSysTick();
+      |           ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'StartTask03':
+../Core/Src/main.c:438:6: warning: unused variable 'i' [-Wunused-variable]
+  438 |  int i = 0;
+      |      ^
+arm-none-eabi-gcc -o "FreeRtos practice.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\FreeRtos practice\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FreeRtos practice.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FreeRtos practice.elf
+ 
+arm-none-eabi-size   FreeRtos\ practice.elf 
+arm-none-eabi-objdump -h -S  FreeRtos\ practice.elf  > "FreeRtos practice.list"
+   text	   data	    bss	    dec	    hex	filename
+  29756	    192	  18824	  48772	   be84	FreeRtos practice.elf
+Finished building: default.size.stdout
+ 
+Finished building: FreeRtos practice.list
+ 
+
+20:56:15 Build Finished. 0 errors, 3 warnings. (took 2s.915ms)
+

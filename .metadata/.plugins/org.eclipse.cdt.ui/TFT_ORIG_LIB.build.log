@@ -1,0 +1,10 @@
+21:09:32 **** Incremental Build of configuration Debug for project TFT_ORIG_LIB ****
+make -j4 all 
+arm-none-eabi-size   TFT_ORIG_LIB.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33888	    548	   2116	  36552	   8ec8	TFT_ORIG_LIB.elf
+Finished building: default.size.stdout
+ 
+
+21:09:33 Build Finished. 0 errors, 0 warnings. (took 1s.67ms)
+

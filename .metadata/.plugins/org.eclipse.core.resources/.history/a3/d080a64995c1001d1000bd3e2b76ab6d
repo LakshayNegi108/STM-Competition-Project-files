@@ -1,0 +1,35 @@
+/*
+ * hms.h
+ *
+ *  Created on: Mar 13, 2023
+ *      Author: hp
+ */
+
+#ifndef HMS_FUNCTIONS_INC_HMS_H_
+#define HMS_FUNCTIONS_INC_HMS_H_
+
+#include "st7783.h"
+
+#define graphRefreshRate_peak			2
+#define graphRefreshRate_normal			5
+
+const int graph_x0 = 30;
+const int graph_y0 = (2 * (TFTHEIGHT / 3)) + 30;
+const int graph_x1 = 30;
+const int graph_y1 = graph_y0 + 50;
+const int graph_x2 = graph_x0 + TFTWIDTH - 95;
+const int graph_y2 = graph_y0;
+const int graph_x3 = graph_x0 + TFTWIDTH - 95;
+const int graph_y3 = graph_y0 + 50;
+int graph_x = graph_x0;
+int graph_y = 0;
+int graph_y_prevVal = 0;
+int graph_refresh_x = graph_x0;
+
+void HMS_bgdisplay(void);
+
+void LCD_ECGAnimation();
+void ecgPeak();
+void ecgLine();
+
+#endif /* HMS_FUNCTIONS_INC_HMS_H_ */

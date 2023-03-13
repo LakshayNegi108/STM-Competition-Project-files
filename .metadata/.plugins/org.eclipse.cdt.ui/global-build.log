@@ -1,0 +1,118 @@
+21:02:28 **** Incremental Build of configuration Debug for project HMS_TRY_3 ****
+make -j4 all 
+arm-none-eabi-size   HMS_TRY_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49832	    572	   2524	  52928	   cec0	HMS_TRY_3.elf
+Finished building: default.size.stdout
+ 
+21:02:48 **** Incremental Build of configuration Debug for project HMS_TRY_4 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/HMS Functions/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/tft_lib/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MAX30100_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:22: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  150 |  USART_WRITE(USART6, "WORKING USART 6\r\n", 18, 100);
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:161:7: warning: unused variable 'print_char' [-Wunused-variable]
+  161 |  char print_char[PRINT_CHAR_LEN] = { 0 };
+      |       ^~~~~~~~~~
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:402:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  402 |   USART_WRITE(USART2, print_char, strlen(print_char), 10);
+      |                       ^~~~~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+arm-none-eabi-gcc -o "HMS_TRY_4.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\HMS_TRY_4\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HMS_TRY_4.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HMS_TRY_4.elf
+ 
+arm-none-eabi-size   HMS_TRY_4.elf 
+arm-none-eabi-objdump -h -S  HMS_TRY_4.elf  > "HMS_TRY_4.list"
+   text	   data	    bss	    dec	    hex	filename
+  48204	    568	  18824	  67596	  1080c	HMS_TRY_4.elf
+Finished building: default.size.stdout
+ 
+Finished building: HMS_TRY_4.list
+ 
+21:09:21 **** Incremental Build of configuration Debug for project HMS_TRY_4 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/HMS Functions/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/tft_lib/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MAX30100_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:154:22: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  154 |  USART_WRITE(USART6, "WORKING USART 6\r\n", 18, 100);
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:165:7: warning: unused variable 'print_char' [-Wunused-variable]
+  165 |  char print_char[PRINT_CHAR_LEN] = { 0 };
+      |       ^~~~~~~~~~
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:406:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  406 |   USART_WRITE(USART2, print_char, strlen(print_char), 10);
+      |                       ^~~~~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+arm-none-eabi-gcc -o "HMS_TRY_4.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\HMS_TRY_4\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HMS_TRY_4.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HMS_TRY_4.elf
+ 
+arm-none-eabi-size   HMS_TRY_4.elf 
+arm-none-eabi-objdump -h -S  HMS_TRY_4.elf  > "HMS_TRY_4.list"
+   text	   data	    bss	    dec	    hex	filename
+  50516	    568	  18824	  69908	  11114	HMS_TRY_4.elf
+Finished building: default.size.stdout
+ 
+Finished building: HMS_TRY_4.list
+ 
+21:11:33 **** Incremental Build of configuration Debug for project HMS_TRY_4 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/HMS Functions/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/tft_lib/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/MAX30100_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:154:22: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  154 |  USART_WRITE(USART6, "WORKING USART 6\r\n", 18, 100);
+      |                      ^~~~~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:165:7: warning: unused variable 'print_char' [-Wunused-variable]
+  165 |  char print_char[PRINT_CHAR_LEN] = { 0 };
+      |       ^~~~~~~~~~
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:406:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  406 |   USART_WRITE(USART2, print_char, strlen(print_char), 10);
+      |                       ^~~~~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:26:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_4/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+arm-none-eabi-gcc -o "HMS_TRY_4.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\HMS_TRY_4\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HMS_TRY_4.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HMS_TRY_4.elf
+ 
+arm-none-eabi-size   HMS_TRY_4.elf 
+arm-none-eabi-objdump -h -S  HMS_TRY_4.elf  > "HMS_TRY_4.list"
+   text	   data	    bss	    dec	    hex	filename
+  50516	    568	  18824	  69908	  11114	HMS_TRY_4.elf
+Finished building: default.size.stdout
+ 
+Finished building: HMS_TRY_4.list
+ 

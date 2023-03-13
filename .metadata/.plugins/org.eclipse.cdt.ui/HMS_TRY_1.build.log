@@ -1,0 +1,33 @@
+00:17:53 **** Incremental Build of configuration Debug for project HMS_TRY_1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_1/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_1/Libraries/MAX30100_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_1/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/HMS_TRY_1/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:218:24: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  218 |    USART_WRITE(USART2, print_char, strlen(print_char), 100);
+      |                        ^~~~~~~~~~
+      |                        |
+      |                        char *
+In file included from ../Core/Src/main.c:25:
+E:/STM codes/STM32F401 SPACE/HMS_TRY_1/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:135:38: warning: unused variable 'lapsedTime' [-Wunused-variable]
+  135 |  uint32_t startTime = HAL_GetTick(), lapsedTime = 500;
+      |                                      ^~~~~~~~~~
+../Core/Src/main.c:135:11: warning: unused variable 'startTime' [-Wunused-variable]
+  135 |  uint32_t startTime = HAL_GetTick(), lapsedTime = 500;
+      |           ^~~~~~~~~
+arm-none-eabi-gcc -o "HMS_TRY_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\HMS_TRY_1\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HMS_TRY_1.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: HMS_TRY_1.elf
+ 
+arm-none-eabi-size   HMS_TRY_1.elf 
+arm-none-eabi-objdump -h -S  HMS_TRY_1.elf  > "HMS_TRY_1.list"
+   text	   data	    bss	    dec	    hex	filename
+  39616	    552	   2272	  42440	   a5c8	HMS_TRY_1.elf
+Finished building: default.size.stdout
+ 
+Finished building: HMS_TRY_1.list
+ 
+
+00:17:55 Build Finished. 0 errors, 3 warnings. (took 2s.336ms)
+

@@ -1,0 +1,5 @@
+adc_buf
+str
+ringBuffer
+espClient
+espClose

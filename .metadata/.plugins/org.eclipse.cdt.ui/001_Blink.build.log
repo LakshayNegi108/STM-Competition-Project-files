@@ -1,0 +1,17 @@
+14:24:38 **** Incremental Build of configuration Debug for project 001_Blink ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/001_Blink/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "001_Blink.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\001_Blink\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001_Blink.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 001_Blink.elf
+ 
+arm-none-eabi-size   001_Blink.elf 
+arm-none-eabi-objdump -h -S  001_Blink.elf  > "001_Blink.list"
+   text	   data	    bss	    dec	    hex	filename
+  20080	    548	   1588	  22216	   56c8	001_Blink.elf
+Finished building: default.size.stdout
+ 
+Finished building: 001_Blink.list
+ 
+
+14:24:41 Build Finished. 0 errors, 0 warnings. (took 3s.60ms)
+

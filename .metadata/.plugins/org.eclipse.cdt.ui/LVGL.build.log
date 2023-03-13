@@ -1,0 +1,23 @@
+00:13:53 **** Incremental Build of configuration Debug for project LVGL ****
+make -j4 all 
+arm-none-eabi-gcc "../Libraries/tft_lib/Src/graphics.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/LameUI/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Libraries/tft_lib/Src/graphics.d" -MT"Libraries/tft_lib/Src/graphics.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Libraries/tft_lib/Src/graphics.o"
+arm-none-eabi-gcc "../Libraries/tft_lib/Src/st7783.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/LameUI/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Libraries/tft_lib/Src/st7783.d" -MT"Libraries/tft_lib/Src/st7783.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Libraries/tft_lib/Src/st7783.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/LameUI/Inc" -I"E:/STM codes/STM32F401 SPACE/LVGL/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Libraries/tft_lib/Src/st7783.c: In function 'LCD_pushColors2':
+../Libraries/tft_lib/Src/st7783.c:1175:11: warning: unused variable 'color' [-Wunused-variable]
+ 1175 |  uint16_t color;
+      |           ^~~~~
+arm-none-eabi-gcc -o "LVGL.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\LVGL\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LVGL.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LVGL.elf
+ 
+arm-none-eabi-size   LVGL.elf 
+arm-none-eabi-objdump -h -S  LVGL.elf  > "LVGL.list"
+   text	   data	    bss	    dec	    hex	filename
+  54012	    552	  10344	  64908	   fd8c	LVGL.elf
+Finished building: default.size.stdout
+ 
+Finished building: LVGL.list
+ 
+
+00:13:56 Build Finished. 0 errors, 1 warnings. (took 2s.727ms)
+

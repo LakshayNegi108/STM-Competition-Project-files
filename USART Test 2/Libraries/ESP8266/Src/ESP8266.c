@@ -1,0 +1,288 @@
+/*
+ * ESP8266.c
+ *
+ *  Created on: 02-Mar-2023
+ *      Author: hp
+ */
+
+#include "ESP8266.h"
+
+#define ESP_USART		USART6
+#define ESP_DELAY(x)	Delay(x)
+#define ESP_TICK()		HAL_GetTick()
+
+int isNumber(char s) {
+	if (s <= '9' && s >= '0') {
+		return (s - '0');
+	} else {
+		return -1;
+	}
+}
+
+bool esp_sendCommand(ring_buffer_t *ringBuffer, char *cmd, char *response,
+		uint16_t timeout) {
+	char str[100] = { 0 };
+	int numItem = 0;
+	uint32_t start = ESP_TICK();
+	USART_WRITE(USART6, cmd, strlen(cmd), 10);
+//		Delay(1);
+	for (int aig = 5000; aig > 0; aig--)
+		;
+	while (usartBusy) {
+		if ((ESP_TICK() - start) > timeout) {
+			return false;
+		}
+	}
+	numItem = ring_buffer_num_items(ringBuffer);
+	if (numItem) {
+//			print("numItems: %d\r\n", numItem);
+		ring_buffer_dequeue_arr(ringBuffer, str, numItem);
+		str[numItem++] = '\0';
+		if (searchSubstring(str, response) >= 0) {
+//				print("ESP Resp: ");
+//				USART_WRITE(USART2, str, numItem, 10);
+			return true;
+		} else {
+			return false;
+		}
+
+	} else {
+		return false;
+	}
+}
+
+bool esp_getResponse(ring_buffer_t *ringBuffer, char *cmd, char *response,
+		uint16_t timeout) {
+	uint16_t numItem = 0;
+	uint32_t start = ESP_TICK();
+	USART_WRITE(USART6, cmd, strlen(cmd), 10);
+	//		Delay(1);
+	for (int aig = 5000; aig > 0; aig--)
+		;
+	while (usartBusy) {
+		if ((ESP_TICK() - start) > timeout) {
+			return false;
+		}
+	}
+	numItem = ring_buffer_num_items(ringBuffer);
+	if (numItem) {
+		ring_buffer_dequeue_arr(ringBuffer, response, numItem);
+		response[numItem++] = '\0';
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+bool esp_waitResponse(ring_buffer_t *ringBuffer, char *cmd, char *response,
+		int items, uint16_t timeout) {
+	uint16_t numItem = 0;
+	uint32_t start = ESP_TICK();
+	USART_WRITE(USART6, cmd, strlen(cmd), 10);
+	//		Delay(1);
+	for (int aig = 5000; aig > 0; aig--)
+		;
+	while (usartBusy || numItem < items) {
+		if ((ESP_TICK() - start) > timeout) {
+			return false;
+		}
+		numItem = ring_buffer_num_items(ringBuffer);
+	}
+	numItem = ring_buffer_num_items(ringBuffer);
+	if (numItem) {
+		ring_buffer_dequeue_arr(ringBuffer, response, numItem);
+		response[numItem++] = '\0';
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+int16_t searchSubstring(char *str, char *subStr) {
+	int i, j;
+	int flag = 0, idx = 0;
+	int len1 = strlen(str), len2 = strlen(subStr);
+	for (i = 0; i <= len1 - len2; i++) {
+		for (j = 0; j < len2; j++) {
+			flag = 0;
+			if (str[i + j] != subStr[j]) {
+				flag = 1;
+				break;
+			}
+		}
+		if (!flag) {
+//            printf("Substr found at Index: %d\n", i);
+			return i;
+			i += len2;
+		}
+	}
+	if (flag) {
+		return -1;
+	}
+}
+
+bool esp_sendAT(ring_buffer_t *ringBuffer, uint16_t timeout) {
+	return esp_sendCommand(ringBuffer, "AT\r\n", "OK\r\n", timeout);
+
+}
+
+bool esp_reset(ring_buffer_t *ringBuffer, uint16_t timeout) {
+	return esp_sendCommand(ringBuffer, "AT+RST\r\n", "OK\r\n", timeout);
+}
+
+bool esp_setCWMODE(ring_buffer_t *ringBuffer, uint8_t n, uint16_t timeout) {
+	char str[20] = { 0 };
+	sprintf(str, "AT+CWMODE=%d\r\n", n);
+	return esp_sendCommand(ringBuffer, str, "OK\r\n", timeout);
+}
+
+bool esp_wifiDisconnect(ring_buffer_t *ringBuffer, uint16_t timeout) {
+//	return esp_sendCommand(ringBuffer, "AT+CWQAP\r\n",
+//			"OK\r\nWIFI DISCONNECT\r\n", timeout);
+	return esp_multiResponse(ringBuffer, "AT+CWQAP\r\n", "OK\r\nWIFI DISCONNECT\r\n", 2, timeout);
+}
+
+bool esp_wifiConnect(ring_buffer_t *ringBuffer, char *ssid, char *password,
+		uint16_t timeout) {
+	char str[100] = { 0 };
+
+	sprintf(str, "AT+CWJAP=\"%s\",\"%s\"\r\n", ssid, password);
+
+//	esp_getResponse(ringBuffer, str, str2, timeout);
+	if (esp_multiResponse(ringBuffer, str, "WIFI GOT IP", 3, timeout)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool esp_multiResponse(ring_buffer_t *ringBuffer, char *cmd, char *response,
+		int numMsg, uint16_t timeout) {
+	char str[100] = { 0 };
+	uint16_t i = ESP_TICK(), num = 0;
+
+	USART_WRITE(USART6, cmd, strlen(cmd), 5);
+
+	int busyCounter = 0;
+	while (busyCounter < numMsg - 1) {
+		if (usartBusy) {
+			busyCounter++;
+			//			print("Busy Count: %d\r\n", busyCounter);
+			while (usartBusy) {
+				//				print("..");
+				if (ESP_TICK() - i > timeout) {
+					return false;
+				}
+			}
+		}
+		if (ESP_TICK() - i > timeout) {
+			return false;
+		}
+	}
+	if (busyCounter >= numMsg - 1) {
+		int numItems = ring_buffer_num_items(ringBuffer);
+		ring_buffer_dequeue_arr(ringBuffer, str, numItems);
+		//		print("Response: %s", str2);
+		if (searchSubstring(str, response) >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	else{
+		return false;
+	}
+}
+bool esp_getIP(ring_buffer_t *ringBuffer, char *ip, uint16_t timeout) {
+	char str[100] = { 0 };
+	if (!(esp_getResponse(ringBuffer, "AT+CIFSR\r\n", str, timeout))) {
+		return false;
+	}
+	print("IP rec: %s\r\n", str);
+	int ptr = searchSubstring(str, "+CIFSR:STAIP,");
+	if (ptr != -1) {
+		strncpy(ip, str + ptr + 14, 15);
+		if (isNumber(ip[14]) == -1)
+			ip[14] = '\0';
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool esp_sendCIPMUX(ring_buffer_t *ringBuffer, uint8_t n, uint16_t timeout) {
+	char str[100] = { 0 };
+	sprintf(str, "AT+CIPMUX=%d\r\n", n);
+	return esp_sendCommand(ringBuffer, str, "OK\r\n", timeout);
+}
+
+bool esp_startServer(ring_buffer_t *ringBuffer, uint8_t startServer,
+		uint8_t port, uint16_t timeout) {
+	char str[100] = { 0 };
+//	char str2[100] = { 0 };
+	sprintf(str, "AT+CIPSERVER=%d,%d\r\n", startServer, port);
+//	if (esp_getResponse(ringBuffer, str, str2, 5)) {
+//		sprintf(str, "AT+CIPSERVER=%d,%d\r\r\nno change\r\n\r\nOK\r\n",
+//				startServer, port);
+//		if (!strcmp(str2, str)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	} else
+//		return false;
+
+	return esp_sendCommand(ringBuffer, str, "OK\r\n", timeout);
+}
+
+bool esp_closeServer(ring_buffer_t *ringBuffer, uint8_t linkID,
+		uint16_t timeout) {
+	char str[20] = { 0 };
+	sprintf(str, "AT+CIPCLOSE=%d\r\n", linkID);
+	return esp_sendCommand(ringBuffer, str, "OK\r\n", timeout);
+}
+
+int Uart_peek(ring_buffer_t *ringBuffer) {
+
+	if (ring_buffer_is_empty(ringBuffer)) {
+		return -1;
+	} else {
+		char s;
+		ring_buffer_dequeue(ringBuffer, &s);
+		return s;
+	}
+
+}
+
+int Wait_for(ring_buffer_t *ringBuffer, char *string) {
+	int so_far = 0;
+	int len = strlen(string);
+	char s;
+	again_device: while (!ring_buffer_num_items(ringBuffer))
+		;
+	if (Uart_peek(ringBuffer) != string[so_far]) {
+		ring_buffer_dequeue(ringBuffer, &s);
+		goto again_device;
+
+	}
+	while (Uart_peek(ringBuffer) == string[so_far]) {
+		so_far++;
+		ring_buffer_dequeue(ringBuffer, &s);
+		if (so_far == len)
+			return 1;
+		while (!ring_buffer_num_items(ringBuffer))
+			;
+	}
+
+	if (so_far != len) {
+		so_far = 0;
+		goto again_device;
+	}
+
+	if (so_far == len)
+		return 1;
+	else
+		return -1;
+}

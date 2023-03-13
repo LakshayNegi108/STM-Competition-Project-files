@@ -1,0 +1,56 @@
+!SESSION 2023-03-13 14:57:39.412 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+This is a continuation of log file E:\STM codes\STM32F401 SPACE\.metadata\.bak_0.log
+Created Time: 2023-03-13 14:58:55.918
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-03-13 14:58:55.920
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-03-13 14:58:56.327
+!MESSAGE Log4j initialized with config file E:\STM codes\STM32F401 SPACE\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-03-13 15:00:33.203
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-13 15:03:46.950
+!MESSAGE Server returned lastModified <= 0 for https://www.st.com/en/embedded-software/x-cube-ai.html/content.jar
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1002 2023-03-13 15:03:58.049
+!MESSAGE Unable to read repository at https://www.st.com/en/embedded-software/x-cube-ai.html.
+!STACK 0
+java.io.IOException: https://www.st.com/en/embedded-software/x-cube-ai.html is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:103)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:63)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:787)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:685)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:110)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:105)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.getAvailableRepositories(UpdateChecker.java:152)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker.checkForUpdates(UpdateChecker.java:130)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:78)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-13 15:04:18.468
+!MESSAGE Using unsafe http transport to retrieve http://rxtx.qbang.org/eclipse/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-13 15:04:59.030
+!MESSAGE Server returned lastModified <= 0 for https://www.st.com/en/embedded-software/x-cube-ai.html/content.jar
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2023-03-13 15:13:14.789
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-13 16:30:44.471
+!MESSAGE Indexed 'HMS_TRY_4' (26 sources, 86 headers) in 9.13 sec: 5,557 declarations; 34,278 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.005%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-13 16:36:21.594
+!MESSAGE Indexed 'HMS_TRY_4' (47 sources, 128 headers) in 8.62 sec: 11,036 declarations; 69,466 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0025%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2023-03-13 17:15:24.425
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-13 17:18:06.071
+!MESSAGE Indexed 'HMS_TRY_4' (48 sources, 127 headers) in 3.71 sec: 10,931 declarations; 69,657 references; 1 unresolved inclusions; 1 syntax errors; 106 unresolved names (0.13%)

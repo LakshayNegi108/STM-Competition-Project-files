@@ -1,0 +1,96 @@
+01:06:35 **** Incremental Build of configuration Debug for project USART Test 2 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/ESP8266/Inc" -I"E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/ringbuffer/Inc" -I"E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:32:51: warning: excess elements in array initializer
+   32 | float temp[5] = { 34.67, 32.07, 28, 26.02, 25.67, 29.09 };
+      |                                                   ^~~~~
+../Core/Src/main.c:32:51: note: (near initialization for 'temp')
+../Core/Src/main.c: In function 'esp_init':
+../Core/Src/main.c:183:20: warning: passing argument 2 of 'memset' makes integer from pointer without a cast [-Wint-conversion]
+  183 |   memset(strCache, "\0", 100);
+      |                    ^~~~
+      |                    |
+      |                    char *
+In file included from E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/BML_DEF.h:14,
+                 from ../Core/Src/main.c:2:
+c:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:33:25: note: expected 'int' but argument is of type 'char *'
+   33 | void *  memset (void *, int, size_t);
+      |                         ^~~
+../Core/Src/main.c: In function 'thingspeak_send':
+../Core/Src/main.c:218:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  218 |   USART_WRITE(USART6, strCache, strlen(strCache), 50);
+      |                       ^~~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:4:
+E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:232:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  232 |   USART_WRITE(USART6, strCache, strlen(strCache), 50);
+      |                       ^~~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:4:
+E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:239:23: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  239 |   USART_WRITE(USART6, dataStr, strlen(dataStr), 50);
+      |                       ^~~~~~~
+      |                       |
+      |                       char *
+In file included from ../Core/Src/main.c:4:
+E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:243:20: warning: passing argument 2 of 'memset' makes integer from pointer without a cast [-Wint-conversion]
+  243 |    memset(dataStr, "\0", 100);
+      |                    ^~~~
+      |                    |
+      |                    char *
+In file included from E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/BML_DEF.h:14,
+                 from ../Core/Src/main.c:2:
+c:\st\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:33:25: note: expected 'int' but argument is of type 'char *'
+   33 | void *  memset (void *, int, size_t);
+      |                         ^~~
+../Core/Src/main.c:199:7: warning: unused variable 'response' [-Wunused-variable]
+  199 |  char response[100] = { 0 };
+      |       ^~~~~~~~
+../Core/Src/main.c: In function 'USART2_IRQHandler':
+../Core/Src/main.c:259:24: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  259 |    USART_WRITE(USART6, command, idx, 10);
+      |                        ^~~~~~~
+      |                        |
+      |                        char *
+In file included from ../Core/Src/main.c:4:
+E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c:260:24: warning: pointer targets in passing argument 2 of 'USART_WRITE' differ in signedness [-Wpointer-sign]
+  260 |    USART_WRITE(USART2, command, idx, 10);
+      |                        ^~~~~~~
+      |                        |
+      |                        char *
+In file included from ../Core/Src/main.c:4:
+E:/STM codes/STM32F401 SPACE/USART Test 2/Libraries/BML_DRIVERS/Inc/uart.h:39:62: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+   39 | BML_StatusTypeDef USART_WRITE(USART_TypeDef *usart, uint8_t *ch, uint32_t len, uint16_t timeout);
+      |                                                     ~~~~~~~~~^~
+../Core/Src/main.c: In function 'USART6_IRQHandler':
+../Core/Src/main.c:276:11: warning: variable 'read' set but not used [-Wunused-but-set-variable]
+  276 |   uint8_t read = USART6->SR;
+      |           ^~~~
+arm-none-eabi-gcc -o "USART Test 2.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\USART Test 2\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USART Test 2.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USART Test 2.elf
+ 
+arm-none-eabi-size   USART\ Test\ 2.elf 
+arm-none-eabi-objdump -h -S  USART\ Test\ 2.elf  > "USART Test 2.list"
+   text	   data	    bss	    dec	    hex	filename
+  25824	    664	   4120	  30608	   7790	USART Test 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: USART Test 2.list
+ 
+
+01:06:36 Build Finished. 0 errors, 10 warnings. (took 1s.671ms)
+

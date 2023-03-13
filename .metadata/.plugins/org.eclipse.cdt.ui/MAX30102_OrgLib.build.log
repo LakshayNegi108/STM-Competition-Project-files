@@ -1,0 +1,32 @@
+23:59:33 **** Incremental Build of configuration Debug for project MAX30102_OrgLib ****
+make -j4 all 
+arm-none-eabi-gcc "../Libraries/MAX30102_Lib/Src/MAX30102_n.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MAX30102_Lib/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Libraries/MAX30102_Lib/Src/MAX30102_n.d" -MT"Libraries/MAX30102_Lib/Src/MAX30102_n.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Libraries/MAX30102_Lib/Src/MAX30102_n.o"
+arm-none-eabi-gcc "../Libraries/MAX30102_Lib/Src/ring_buffer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MAX30102_Lib/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Libraries/MAX30102_Lib/Src/ring_buffer.d" -MT"Libraries/MAX30102_Lib/Src/ring_buffer.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Libraries/MAX30102_Lib/Src/ring_buffer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MAX30102_Lib/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/MAX30102_OrgLib/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Libraries/MAX30102_Lib/Src/MAX30102_n.c: In function 'max30102_plot':
+../Libraries/MAX30102_Lib/Src/MAX30102_n.c:18:2: warning: implicit declaration of function 'print'; did you mean 'printf'? [-Wimplicit-function-declaration]
+   18 |  print("%d, %d\n\r", ir_sample, red_sample);
+      |  ^~~~~
+      |  printf
+../Libraries/MAX30102_Lib/Src/MAX30102_n.c: In function 'max30102_read':
+../Libraries/MAX30102_Lib/Src/MAX30102_n.c:71:13: warning: unused variable 'reg_addr' [-Wunused-variable]
+   71 |     uint8_t reg_addr = reg;
+      |             ^~~~~~~~
+../Core/Src/main.c:36: warning: "DEBUG" redefined
+   36 | #define DEBUG 0
+      | 
+<command-line>: note: this is the location of the previous definition
+arm-none-eabi-gcc -o "MAX30102_OrgLib.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\MAX30102_OrgLib\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MAX30102_OrgLib.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: MAX30102_OrgLib.elf
+ 
+arm-none-eabi-size   MAX30102_OrgLib.elf 
+arm-none-eabi-objdump -h -S  MAX30102_OrgLib.elf  > "MAX30102_OrgLib.list"
+   text	   data	    bss	    dec	    hex	filename
+  30788	    548	   2260	  33596	   833c	MAX30102_OrgLib.elf
+Finished building: default.size.stdout
+ 
+Finished building: MAX30102_OrgLib.list
+ 
+
+23:59:36 Build Finished. 0 errors, 3 warnings. (took 2s.600ms)
+

@@ -1,0 +1,10 @@
+21:04:27 **** Incremental Build of configuration Debug for project Analog Read ****
+make -j4 all 
+arm-none-eabi-size   Analog\ Read.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24896	    548	   1764	  27208	   6a48	Analog Read.elf
+Finished building: default.size.stdout
+ 
+
+21:04:28 Build Finished. 0 errors, 0 warnings. (took 749ms)
+

@@ -1,0 +1,45 @@
+22:38:46 **** Incremental Build of configuration Debug for project tft gui ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I"E:/STM codes/STM32F401 SPACE/tft gui/Libraries/BML_DRIVERS/Inc" -I"E:/STM codes/STM32F401 SPACE/tft gui/Libraries/MLX90614_LIB/Inc" -I"E:/STM codes/STM32F401 SPACE/tft gui/Libraries/tft_lib/Inc" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:159:3: warning: implicit declaration of function 'LCD_DrawGraph'; did you mean 'LCD_DrawChar'? [-Wimplicit-function-declaration]
+  159 |   LCD_DrawGraph(adcData);
+      |   ^~~~~~~~~~~~~
+      |   LCD_DrawChar
+../Core/Src/main.c:145:36: warning: unused variable 'end' [-Wunused-variable]
+  145 |  uint16_t i = 0, j = 0, start = 0, end = 0;
+      |                                    ^~~
+../Core/Src/main.c:145:25: warning: unused variable 'start' [-Wunused-variable]
+  145 |  uint16_t i = 0, j = 0, start = 0, end = 0;
+      |                         ^~~~~
+../Core/Src/main.c:145:18: warning: unused variable 'j' [-Wunused-variable]
+  145 |  uint16_t i = 0, j = 0, start = 0, end = 0;
+      |                  ^
+../Core/Src/main.c:133:10: warning: variable 'mlx90614_wrokingFlag' set but not used [-Wunused-but-set-variable]
+  133 |  uint8_t mlx90614_wrokingFlag = 1, status = 0;
+      |          ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:430:6: warning: conflicting types for 'LCD_DrawGraph'
+  430 | void LCD_DrawGraph(uint16_t value) {
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:159:3: note: previous implicit declaration of 'LCD_DrawGraph' was here
+  159 |   LCD_DrawGraph(adcData);
+      |   ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'LCD_DrawGraph':
+../Core/Src/main.c:436:10: warning: unused variable 'graphRefreshRate' [-Wunused-variable]
+  436 |  uint8_t graphRefreshRate = 0;
+      |          ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "tft gui.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\STM codes\STM32F401 SPACE\tft gui\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="tft gui.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: tft gui.elf
+ 
+arm-none-eabi-size   tft\ gui.elf 
+arm-none-eabi-objdump -h -S  tft\ gui.elf  > "tft gui.list"
+   text	   data	    bss	    dec	    hex	filename
+  39120	  11316	   2412	  52848	   ce70	tft gui.elf
+Finished building: default.size.stdout
+ 
+Finished building: tft gui.list
+ 
+
+22:38:48 Build Finished. 0 errors, 7 warnings. (took 2s.138ms)
+

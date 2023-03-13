@@ -1,0 +1,10 @@
+21:02:28 **** Incremental Build of configuration Debug for project HMS_TRY_3 ****
+make -j4 all 
+arm-none-eabi-size   HMS_TRY_3.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49832	    572	   2524	  52928	   cec0	HMS_TRY_3.elf
+Finished building: default.size.stdout
+ 
+
+21:02:29 Build Finished. 0 errors, 0 warnings. (took 918ms)
+

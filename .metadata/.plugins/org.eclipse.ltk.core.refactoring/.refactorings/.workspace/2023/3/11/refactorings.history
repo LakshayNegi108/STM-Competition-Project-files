@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;MAX30102 Reading/Libraries/MLX90614_LIB&apos;" deleteContents="false" description="Delete resource &apos;MAX30102 Reading/Libraries/MLX90614_LIB&apos;" element1="/MAX30102 Reading/Libraries/MLX90614_LIB" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1678623498014"/>
+</session>

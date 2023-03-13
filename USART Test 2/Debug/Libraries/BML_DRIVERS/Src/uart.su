@@ -1,0 +1,11 @@
+../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+../Libraries/BML_DRIVERS/Src/uart.c:9:6:USART_INIT	32	static
+../Libraries/BML_DRIVERS/Src/uart.c:23:6:USART_IT_EN	16	static
+../Libraries/BML_DRIVERS/Src/uart.c:44:6:USART_CLK_EN	16	static
+../Libraries/BML_DRIVERS/Src/uart.c:54:6:USART_PIN_CONFIG	32	static
+../Libraries/BML_DRIVERS/Src/uart.c:101:6:USART_BDR_SEL	24	static
+../Libraries/BML_DRIVERS/Src/uart.c:117:19:USART_WRITE	32	static
+../Libraries/BML_DRIVERS/Src/uart.c:137:9:USART_READ	24	static
+../Libraries/BML_DRIVERS/Src/uart.c:170:6:print	16	static
+../Libraries/BML_DRIVERS/Src/uart.c:182:6:println	16	static
+../Libraries/BML_DRIVERS/Src/uart.c:195:6:uart_print_config	24	static
