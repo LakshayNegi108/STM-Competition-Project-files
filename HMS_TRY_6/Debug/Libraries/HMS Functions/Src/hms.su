@@ -1,0 +1,4 @@
+../Libraries/HMS Functions/Src/hms.c:25:6:HMS_bgdisplay	8	static
+../Libraries/HMS Functions/Src/hms.c:54:6:ecgPeak	24	static
+../Libraries/HMS Functions/Src/hms.c:103:6:ecgLine	32	static
+../Libraries/HMS Functions/Src/hms.c:122:6:LCD_ECGAnimation	24	static

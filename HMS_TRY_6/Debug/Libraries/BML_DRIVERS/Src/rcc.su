@@ -1,0 +1,2 @@
+../Libraries/BML_DRIVERS/Src/rcc.c:10:19:RCC_CONFIG_84MHZ	88	static
+../Libraries/BML_DRIVERS/Src/rcc.c:53:19:RCC_CONFIG_84MHZ_BML	16	static

@@ -1,0 +1,16 @@
+../FATFS/Target/user_diskio_spi.c:82:6:SPI_Timer_On	16	static
+../FATFS/Target/user_diskio_spi.c:87:9:SPI_Timer_Status	8	static
+../FATFS/Target/user_diskio_spi.c:96:13:xchg_spi	32	static
+../FATFS/Target/user_diskio_spi.c:105:6:rcvr_spi_multi	32	static
+../FATFS/Target/user_diskio_spi.c:116:6:xmit_spi_multi	24	static
+../FATFS/Target/user_diskio_spi.c:130:5:wait_ready	32	static
+../FATFS/Target/user_diskio_spi.c:155:6:despiselect	8	static
+../FATFS/Target/user_diskio_spi.c:166:5:spiselect	8	static
+../FATFS/Target/user_diskio_spi.c:182:5:rcvr_datablock	24	static
+../FATFS/Target/user_diskio_spi.c:209:5:xmit_datablock	24	static
+../FATFS/Target/user_diskio_spi.c:236:13:send_cmd	24	static
+../FATFS/Target/user_diskio_spi.c:294:16:USER_SPI_initialize	32	static
+../FATFS/Target/user_diskio_spi.c:355:16:USER_SPI_status	16	static
+../FATFS/Target/user_diskio_spi.c:367:16:USER_SPI_read	24	static
+../FATFS/Target/user_diskio_spi.c:405:16:USER_SPI_write	24	static
+../FATFS/Target/user_diskio_spi.c:449:16:USER_SPI_ioctl	56	static
